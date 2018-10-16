@@ -3,8 +3,8 @@ defmodule TaskTracker.Repo.Migrations.CreateTasks do
 
   def change do
     create table(:tasks) do
-      add :title, :string
-      add :desc, :text
+      add :title, :string, null: false
+      add :desc, :text, null: false
       add :completed, :boolean, default: false, null: false
       add :time, :integer
       add :assigned, references(:users, type: :string, column: :email, on_update: :update_all)

@@ -5,7 +5,7 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Desc</th>
+        <th>Description</th>
         <th>Completed</th>
         <th>Time</th>
         <th>Assigned</th>
