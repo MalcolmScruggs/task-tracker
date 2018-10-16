@@ -1,0 +1,6 @@
+<div>
+    <div>
+        <h1>Task Tracker</h1>
+        <p><%= link "Create new user", to: Routes.user_path(@conn, :new) %></p>
+    </div>
+</div>
