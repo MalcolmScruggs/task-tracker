@@ -7,8 +7,6 @@ export PATH="$PATH:$NODEBIN"
 
 echo "Building..."
 
-mkdir -p ~/.config
-
 mix deps.get
 mix compile
 (cd assets && npm install)
@@ -23,4 +21,4 @@ mix release
 
 echo "Starting app..."
 
-_build/prod/rel/memory/bin/memory foreground
+_build/prod/rel/task_tracker/bin/task_tracker foreground
