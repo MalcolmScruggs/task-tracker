@@ -3,6 +3,7 @@ Design Decisions:
 
 Data
 * Users have a unique username (email) enforced by unique constraint on database
+* Verification not done on email's yet (currently just set as a unique username)
 * Tasks have at most one user assigned to them, enforced by reference
 * Tasks must have title and description
 * Tasks can have time worked on and not be complete, and time can be set to any
