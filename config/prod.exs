@@ -100,5 +100,3 @@ config :task_tracker, TaskTracker.Repo,
        password: get_secret.("db_pass"),
        database: "task_tracker_prod2",
        pool_size: 15
-
-       #s1xZGCCLyt@yOYEh9^h6
