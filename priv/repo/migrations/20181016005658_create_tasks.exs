@@ -7,7 +7,7 @@ defmodule TaskTracker.Repo.Migrations.CreateTasks do
       add :desc, :text, null: false
       add :completed, :boolean, default: false, null: false
       add :time, :integer
-      add :assigned, references(:users, type: :string, column: :email, on_update: :update_all)
+      add :assigned, references(:users, type: :string, column: :email, on_update: :update_all), null: false
 
       timestamps()
     end

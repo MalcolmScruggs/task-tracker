@@ -3,6 +3,7 @@ defmodule TaskTracker.Users do
   The Users context.
   """
 
+  require Logger
   import Ecto.Query, warn: false
   alias TaskTracker.Repo
 
@@ -35,11 +36,25 @@ defmodule TaskTracker.Users do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id) do
+    Repo.one! from u in User,
+      where: u.id == ^id,
+      preload: [:managed]
+  end
 
-  def get_user(id), do: Repo.get(User, id)
+  def get_user(id) do
+    Repo.one from u in User,
+      where: u.id == ^id,
+      preload: [:managed]
+  end
 
-  def get_user_by_email(email), do: Repo.get_by(User, email: email)
+  def get_user_by_email(email) do
+    Logger.debug("email")
+    Repo.get_by(User, email: email)
+  end
+
+
+
 
   @doc """
   Creates a user.
