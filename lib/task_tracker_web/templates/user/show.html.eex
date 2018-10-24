@@ -16,7 +16,7 @@
     <strong>Manager:</strong>
     <%= if @user.manager do %>
       <%= @user.manager %>
-    <%= else %>
+    <% else %>
       none
     <% end %>
   </li>
