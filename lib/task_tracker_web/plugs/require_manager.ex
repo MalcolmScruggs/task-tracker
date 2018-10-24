@@ -10,6 +10,8 @@ defmodule TaskTrackerWeb.Plugs.RequireManager do
     user = conn.assigns[:current_user]
     task = conn.body_params["task"]
     assigned = task["assigned"]
+    Logger.debug "KALS;DFJAS;DLFKJASD;LFKAJSD;FDLAKSDJF;ALSK"
+    Logger.debug inspect(assigned)
     isValidManager = Enum.find(user.managed, fn m -> m.email == assigned end)
 
     if isValidManager || (!user.manager && assigned == user.email) do

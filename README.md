@@ -2,7 +2,7 @@
 Design Decisions:
 
 * Tasks can no longer be unassigned. This removes any questions about a user with a manager making 
-an unassigned task. It also makes who can delete what clear (ie. user with manager deleting unassigned tasks)
+an unassigned task, or confusion about who is working on a task.
 
 * Only managers can assign tasks to employees they directly manage. The exception is a user with no manager
 can self-assign a task (ie CEO of a company) who can additionally assign a task to themselves. This is 

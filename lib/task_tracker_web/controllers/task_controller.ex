@@ -4,7 +4,7 @@ defmodule TaskTrackerWeb.TaskController do
   alias TaskTracker.Tasks
   alias TaskTracker.Tasks.Task
 
-  plug TaskTrackerWeb.Plugs.RequireManager when action in [:create, :update, :delete] #TODO delete?
+  plug TaskTrackerWeb.Plugs.RequireManager when action in [:create, :update] #TODO delete?
 
   def index(conn, _params) do
     tasks = Tasks.list_tasks()
