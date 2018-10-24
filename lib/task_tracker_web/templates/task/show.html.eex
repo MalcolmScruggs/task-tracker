@@ -13,19 +13,45 @@
   </li>
 
   <li>
-    <strong>Completed:</strong>
-    <%= @task.completed %>
-  </li>
-
-  <li>
-    <strong>Time:</strong>
-    <%= @task.time %>
-  </li>
-
-  <li>
     <strong>Assigned:</strong>
     <%= @task.assigned %>
   </li>
+
+  <li>
+    <strong>Start time:</strong>
+    <div id="start-time" style="display: inline"><%= if @task.task_times && @task.task_times.start_time do %>
+      <%= NaiveDateTime.truncate(@task.task_times.start_time, :second) %>
+    <% end %></div>
+  </li>
+
+  <li>
+    <strong>End time:</strong>
+    <div id="end-time" style="display: inline"><%= if @task.task_times && @task.task_times.end_time do %>
+      <%= NaiveDateTime.truncate(@task.task_times.end_time, :second) %>
+    <% end %></div>
+  </li>
+
+  <%= if compute_time(@task) do %>
+    <li>
+      <strong>Time to complete:</strong>
+      <%= compute_time(@task) %> min
+    </li>
+  <% end %>
+
+  <%= if @current_user && @current_user.email == @task.assigned
+      && !@task.task_times do %>
+    <button id="start-work-button"
+            data-task-id="<%= @task.id %>"
+            class="btn btn-secondary">Start Working</button>
+  <% end %>
+
+  <%= if @current_user && @current_user.email == @task.assigned && @task.task_times
+      && !@task.task_times.end_time do %>
+    <button id="stop-work-button"
+            data-task-id="<%= @task.id %>"
+            data-time-id="<%= @task.task_times.id %>"
+            class="btn btn-secondary">Stop Working</button>
+  <% end %>
 
 </ul>
 

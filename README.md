@@ -8,26 +8,15 @@ an unassigned task. It also makes who can delete what clear (ie. user with manag
 can self-assign a task (ie CEO of a company) who can additionally assign a task to themselves. This is 
 to encompass more use cases for users.
 
+* Only users assigned to a task can change the time information. Other users are not shown the buttons to change it.
+
+* Only managers of the user assigned to the task can make edits to it.
 
 
 
 
 
 
-Data
-* Users have a unique username (email) enforced by unique constraint on database
-* Verification not done on email's yet (currently just set as a unique username)
-* Tasks have at most one user assigned to them, enforced by reference
-* Tasks must have title and description
-* Tasks can have time worked on and not be complete, and time can be set to any
-positive integer, enforced by constraint
-
-UI
-* First screen is a registration page (to create a user)
-* "Home page" is the list of all tasks
-* Logging in takes user to the tasks screen, logging out (or failed registration) takes them to registration
-* Incrementing time is enforced by increments on form
-* Trying to assign a user that doesn't exist to a task fails
 
 ## Phoenix Instructions
 To start your Phoenix server:

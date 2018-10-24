@@ -6,8 +6,6 @@
       <tr>
         <th>Title</th>
         <th>Description</th>
-        <th>Completed</th>
-        <th>Time</th>
         <th>Assigned</th>
         <th></th>
       </tr>
@@ -17,11 +15,6 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.desc %></td>
-        <td><%= task.completed %></td>
-        <td><%= if task.time do %>
-              <%= task.time %> min
-            <%= end %>
-        </td>
         <td><%= task.assigned %></td>
 
         <td>
