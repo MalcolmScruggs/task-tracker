@@ -13,7 +13,7 @@ config :task_tracker, TaskTrackerWeb.Endpoint,
   server: true,
   root: ".",
   version: Application.spec(:phoenix_distillery, :vsn),
-  http: [:inet6, port: System.get_env("PORT")],
+  http: [:inet6, port: {:system, "PORT"}],
   url: [host: "tasks2.malcolmscruggs.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
