@@ -13,9 +13,13 @@ config :task_tracker, TaskTrackerWeb.Endpoint,
   server: true,
   root: ".",
   version: Application.spec(:phoenix_distillery, :vsn),
-  http: [:inet6, port: System.get_env("PORT")],
-  url: [host: "tasks2.malcolmscruggs.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+#  http: [:inet6, port: System.get_env("PORT")],
+#  url: [host: "tasks2.malcolmscruggs.com", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  url: [scheme: "https", host: "mysterious-meadow-6277.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 config :logger, level: :info
