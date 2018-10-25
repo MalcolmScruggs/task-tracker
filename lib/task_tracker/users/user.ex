@@ -15,7 +15,7 @@ defmodule TaskTracker.Users.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email, :admin])
+    |> cast(attrs, [:email, :admin, :manager])
     |> validate_required([:email, :admin])
     |> unique_constraint(:email)
   end
